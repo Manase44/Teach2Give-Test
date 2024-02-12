@@ -5,7 +5,7 @@
 
 const prompt = require("prompt-sync")({ sigint: true });
 let sentence = prompt("Enter the sentence: ");
-let numberOfVowels = 0;
+let numberOfVowels = new Set();
 
 const vowels = ["a", "e", "i", "o", "u"];
 
@@ -13,7 +13,8 @@ let sentenceLetters = sentence.toLowerCase().split("");
 
 for (i = 0; i < sentenceLetters.length; i++) {
   if (vowels.includes(sentenceLetters[i])) {
-    numberOfVowels++;
+    numberOfVowels.add(sentenceLetters[i])
   }
 }
-console.log(numberOfVowels);
+
+console.log(numberOfVowels.size)
